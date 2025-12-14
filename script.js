@@ -1,14 +1,18 @@
-// Simple script to toggle the mobile menu
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+// Sticky Navbar Effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.navbar');
+    header.classList.toggle('sticky', window.scrollY > 0);
 });
 
-// Close menu when a link is clicked (for better UX)
-document.querySelectorAll(".nav-links li a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+// Simple Console Message
+console.log("Portfolio Loaded! Design by Amritpal.");
+
+// Smooth Scroll for Anchor Links (Backup for older browsers)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
