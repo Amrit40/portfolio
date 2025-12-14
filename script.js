@@ -1,10 +1,11 @@
-// 1. Theme Toggle
+// 1. Theme Toggle (Same Logic, Different ID to match new HTML)
 const themeBtn = document.getElementById('theme-btn');
 const themeIcon = themeBtn.querySelector('i');
 const body = document.body;
 
-// Check Local Storage
-if (localStorage.getItem('theme') === 'dark') {
+// Check Local Storage on Load
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
     body.classList.add('dark-mode');
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
@@ -13,7 +14,7 @@ if (localStorage.getItem('theme') === 'dark') {
 themeBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     
-    if(body.classList.contains('dark-mode')){
+    if (body.classList.contains('dark-mode')) {
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
         localStorage.setItem('theme', 'dark');
@@ -24,71 +25,19 @@ themeBtn.addEventListener('click', () => {
     }
 });
 
-// 2. Live Clock (Dashboard Feel)
-function updateClock() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit'
+// 2. Scroll Animation Observer (The Motion Part)
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
     });
-    document.getElementById('clock').innerText = timeString;
-}
-setInterval(updateClock, 1000);
-updateClock();
+}, observerOptions);
 
-// 3. Subtle Background Animation (Dots)
-const canvas = document.getElementById('bgCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+document.querySelectorAll('[data-animate]').forEach((el) => {
+    observer.observe(el);
 });
-
-class Particle {
-    constructor(){
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-    }
-    update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if(this.x > canvas.width) this.x = 0;
-        if(this.x < 0) this.x = canvas.width;
-        if(this.y > canvas.height) this.y = 0;
-        if(this.y < 0) this.y = canvas.height;
-    }
-    draw(){
-        ctx.fillStyle = getComputedStyle(document.body).getPropertyValue('--accent');
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function initParticles(){
-    for(let i=0; i<50; i++){
-        particles.push(new Particle());
-    }
-}
-
-function animate(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for(let i=0; i<particles.length; i++){
-        particles[i].update();
-        particles[i].draw();
-    }
-    requestAnimationFrame(animate);
-}
-
-initParticles();
-animate();
