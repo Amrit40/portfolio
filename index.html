@@ -3,144 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amritpal Singh | Data Analyst Portfolio</title>
+    <title>Amritpal Singh | Data Analyst</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <h1 class="logo">Amritpal.</h1>
-            
-            <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                
-                <i class="fas fa-moon" id="theme-toggle" title="Toggle Dark Mode"></i>
+    <canvas id="bgCanvas"></canvas>
 
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
+    <nav>
+        <div class="logo">My Portfolio<span class="dot">.</span></div>
+        <div class="nav-controls">
+            <button id="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="assets/my-resume.pdf" download class="resume-btn">Resume <i class="fas fa-download"></i></a>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <canvas id="canvas1"></canvas>
-
-        <div class="hero-content">
-            <p>Hello, I'm</p>
-            <h1>Amritpal Singh</h1>
-            <h2>Data Analyst</h2>
-            <p class="tagline">Turning raw data into meaningful business insights using Python & SQL.</p>
-            
-            <div class="hero-buttons">
-                <a href="#contact" class="btn">Contact Me</a>
-                <a href="assets/my-resume.pdf" download class="btn-outline">Download CV <i class="fas fa-download"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <p>
-                    I am a B.Sc Data Analytics student at <strong>Khalsa College, Amritsar</strong>. 
-                    I specialize in transforming complex datasets into actionable strategies. 
-                    My focus is on statistical analysis, data visualization, and building predictive models 
-                    to solve real-world problems.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section bg-alt">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-python skill-icon"></i>
-                    <h3>Python</h3>
-                    <p>Pandas, NumPy, Matplotlib, Scikit-learn</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database skill-icon"></i>
-                    <h3>SQL</h3>
-                    <p>Joins, Aggregations, Subqueries</p>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-table skill-icon"></i>
-                    <h3>Data Visualization</h3>
-                    <p>MS Excel, Power BI, Dashboards</p>
+    <div class="bento-container">
+        
+        <div class="bento-box profile-box">
+            <div class="status-badge"><span class="blink"></span> Open to Work</div>
+            <div class="profile-content">
+                <img src="https://ui-avatars.com/api/?name=Amritpal+Singh&background=2563eb&color=fff&size=150" alt="Profile" class="profile-img">
+                <h1>Amritpal Singh</h1>
+                <h2>Data Analyst</h2>
+                <p>Transforming raw data into clear, actionable business insights.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="skills-grid">
-                
-                <div class="skill-card project-card">
-                    <h3>📉 IPL Data Analysis</h3>
-                    <p class="tech-stack">
-                        <strong>Tools:</strong> Python, Pandas, Matplotlib
-                    </p>
-                    <p>Analyzed 5 years of IPL match data to visualize team performance trends and predict win probability based on toss decisions.</p>
-                    <br>
-                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Code <i class="fab fa-github"></i></a>
-                </div>
-    
-                <div class="skill-card project-card">
-                    <h3>🛒 Superstore Sales Dashboard</h3>
-                    <p class="tech-stack">
-                        <strong>Tools:</strong> MS Excel, Power Query
-                    </p>
-                    <p>Created an interactive dashboard to track regional sales, profit margins, and category performance to identify loss-making sectors.</p>
-                    <br>
-                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Dashboard <i class="fas fa-chart-line"></i></a>
-                </div>
+        <div class="bento-box location-box">
+            <h3>Based in</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Punjab, India</p>
+            <div id="clock" class="live-clock">00:00:00</div>
+        </div>
 
-                <div class="skill-card project-card">
-                    <h3>🏥 Healthcare Data Cleaning</h3>
-                    <p class="tech-stack">
-                        <strong>Tools:</strong> SQL, Excel
-                    </p>
-                    <p>Cleaned and normalized a dataset of 10,000 patient records, removing duplicates and handling missing values for analysis.</p>
-                    <br>
-                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Query <i class="fas fa-database"></i></a>
-                </div>
-    
+        <div class="bento-box skills-box">
+            <h3>My Skills</h3>
+            <div class="skill-tags">
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fas fa-database"></i> SQL</span>
+                <span><i class="fas fa-table"></i> Excel</span>
+                <span><i class="fas fa-chart-bar"></i> Power BI</span>
+                <span><i class="fas fa-brain"></i> ML Basics</span>
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="section bg-alt">
-        <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Open for Data Analyst Internships and Projects.</p>
-            <div class="contact-links">
-                <a href="mailto:your-email@example.com" class="btn-outline"><i class="fas fa-envelope"></i> Email</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/yourusername" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
+        <div class="bento-box project-box p1">
+            <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="project-info">
+                <h3>IPL Analysis</h3>
+                <p>Python & Pandas</p>
+                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2025 Amritpal Singh. Built with Code.</p>
-    </footer>
+        <div class="bento-box project-box p2">
+            <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+            <div class="project-info">
+                <h3>Sales Dashboard</h3>
+                <p>Excel & Power Query</p>
+                <a href="#" class="link-arrow"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+
+        <div class="bento-box edu-box">
+            <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="edu-item">
+                <strong>B.Sc Data Analytics</strong>
+                <span>Khalsa College, Amritsar</span>
+            </div>
+        </div>
+
+        <div class="bento-box contact-box">
+            <h2>Have a project?</h2>
+            <p>Let's analyze some data together.</p>
+            <a href="mailto:email@example.com" class="contact-btn">Copy Email</a>
+        </div>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
