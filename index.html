@@ -3,95 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amritpal Singh | Data Analyst</title>
+    <title>Amritpal Singh | Data Analyst Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">PORTFOLIO</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact" class="btn-highlight">Let's Talk</a></li>
-        </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+        <div class="container">
+            <h1 class="logo">My Portfolio</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-text">
-            <span class="greeting">Hi, I am Amritpal Singh</span>
-            <h1>DATA <br> <span class="text-gradient">STORYTELLER.</span></h1>
-            <p>I transform complex raw data into clear, actionable insights using Python, SQL, and Visualization tools.</p>
+        <canvas id="canvas1"></canvas>
+
+        <div class="hero-content">
+            <p>Hello, I'm</p>
+            <h1>Amritpal Singh</h1>
+            <h2>Data Analyst</h2>
+            <p class="tagline">Turning raw data into meaningful business insights using Python & SQL.</p>
             
-            <div class="hero-stats">
-                <div class="stat">
-                    <h3>Student</h3>
-                    <p>Khalsa College</p>
-                </div>
-                <div class="stat">
-                    <h3>Focus</h3>
-                    <p>Analytics & ML</p>
-                </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="assets/my-resume.pdf" download class="btn-outline">Download CV <i class="fas fa-download"></i></a>
             </div>
         </div>
     </section>
 
     <section id="about" class="section">
-        <h2 class="section-heading">My Arsenal</h2>
-        <div class="skills-wrapper">
-            <div class="skill-box python"><i class="fab fa-python"></i> Python</div>
-            <div class="skill-box sql"><i class="fas fa-database"></i> SQL</div>
-            <div class="skill-box excel"><i class="fas fa-table"></i> Excel</div>
-            <div class="skill-box viz"><i class="fas fa-chart-pie"></i> PowerBI</div>
-            <div class="skill-box stats"><i class="fas fa-calculator"></i> Statistics</div>
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p>
+                    I am a B.Sc Data Analytics student at <strong>Khalsa College, Amritsar</strong>. 
+                    I specialize in transforming complex datasets into actionable strategies. 
+                    My focus is on statistical analysis, data visualization, and building predictive models 
+                    to solve real-world problems.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section id="work" class="section">
-        <h2 class="section-heading">Selected Works</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="card-content">
-                    <h3>Sales Dashboard</h3>
-                    <p>Interactive dashboard analyzing monthly sales trends using Excel & PowerBI.</p>
-                    <div class="tags">
-                        <span>Excel</span>
-                        <span>Data Viz</span>
-                    </div>
-                    <a href="#" class="link-arrow">View Project <i class="fas fa-arrow-right"></i></a>
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3>Python</h3>
+                    <p>Pandas, NumPy, Matplotlib, Scikit-learn</p>
                 </div>
-            </div>
-
-            <div class="project-card">
-                <div class="card-content">
-                    <h3>Web Scraper Bot</h3>
-                    <p>Automated script to extract real-time stock prices using Python & BeautifulSoup.</p>
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>Automation</span>
-                    </div>
-                    <a href="#" class="link-arrow">View Project <i class="fas fa-arrow-right"></i></a>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>SQL</h3>
+                    <p>Joins, Aggregations, Subqueries</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-table skill-icon"></i>
+                    <h3>Data Visualization</h3>
+                    <p>MS Excel, Power BI, Dashboards</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="footer-section">
-        <h2>Ready to collaborate?</h2>
-        <a href="mailto:amrit@example.com" class="email-link">amrit@example.com</a>
-        <div class="socials">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card project-card">
+                    <h3>📉 IPL Data Analysis</h3>
+                    <p class="tech-stack" style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
+                        <strong>Tools:</strong> Python, Pandas, Matplotlib
+                    </p>
+                    <p>Analyzed 5 years of IPL match data to visualize team performance trends and predict win probability based on toss decisions.</p>
+                    <br>
+                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Code <i class="fab fa-github"></i></a>
+                </div>
+    
+                <div class="skill-card project-card">
+                    <h3>🛒 Superstore Sales Dashboard</h3>
+                    <p class="tech-stack" style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
+                        <strong>Tools:</strong> MS Excel, Power Query
+                    </p>
+                    <p>Created an interactive dashboard to track regional sales, profit margins, and category performance to identify loss-making sectors.</p>
+                    <br>
+                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Dashboard <i class="fas fa-chart-line"></i></a>
+                </div>
+
+                <div class="skill-card project-card">
+                    <h3>🏥 Healthcare Data Cleaning</h3>
+                    <p class="tech-stack" style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
+                        <strong>Tools:</strong> SQL, Excel
+                    </p>
+                    <p>Cleaned and normalized a dataset of 10,000 patient records, removing duplicates and handling missing values for analysis.</p>
+                    <br>
+                    <a href="#" class="btn-outline" style="font-size: 0.8rem;">View Query <i class="fas fa-database"></i></a>
+                </div>
+    
+            </div>
         </div>
-        <p class="copyright">© 2025 Amritpal Singh. Crafted with Code.</p>
     </section>
+
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Open for Data Analyst Internships and Projects.</p>
+            <div class="contact-links">
+                <a href="mailto:your-email@example.com" class="btn-outline"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank" class="btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Amritpal Singh. Built with Code.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
