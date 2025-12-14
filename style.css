@@ -1,6 +1,6 @@
 /* --- 1. CONFIGURATION --- */
 :root {
-    /* Light Theme (Glassy) */
+    /* Light Theme */
     --bg-color: #f3f4f6;
     --text-main: #111827;
     --text-muted: #4b5563;
@@ -17,7 +17,7 @@
 }
 
 body.dark-mode {
-    /* Dark Theme (Deep Space) */
+    /* Dark Theme */
     --bg-color: #0f172a;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -42,7 +42,7 @@ body {
     position: relative;
 }
 
-/* Background Blobs (The "Complex" Vibe) */
+/* Background Blobs */
 .blob-cont {
     position: fixed;
     top: 0;
@@ -51,7 +51,7 @@ body {
     height: 100vh;
     z-index: -1;
     overflow: hidden;
-    filter: blur(80px); /* Creates the soft gradient effect */
+    filter: blur(80px);
 }
 
 .blob {
@@ -94,7 +94,6 @@ body {
 
 .nav-right { display: flex; gap: 15px; align-items: center; }
 
-/* Theme Button (Your Favorite Style) */
 #theme-btn {
     background: transparent;
     border: 1px solid var(--text-muted);
@@ -132,7 +131,7 @@ body {
     padding: 0 10%;
     max-width: 1400px;
     margin: 0 auto;
-    padding-top: 100px; /* Space for nav */
+    padding-top: 100px;
 }
 
 .hero-text { max-width: 600px; }
@@ -184,68 +183,30 @@ body {
 }
 .btn-secondary:hover { background: var(--text-muted); color: var(--bg-color); }
 
-/* --- 5. VISUAL CIRCLE (Replacing Image) --- */
-.hero-visual { position: relative; }
+/* --- 5. HERO IMAGE (Profile Picture) --- */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.profile-circle {
+.hero-img {
     width: 350px;
     height: 350px;
+    object-fit: cover;
     border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, var(--bg-color), var(--glass-bg));
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 20px 50px var(--accent-glow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    backdrop-filter: blur(10px);
+    border: 2px solid var(--glass-border);
+    padding: 10px;
+    background: var(--glass-bg);
+    box-shadow: 0 0 50px var(--accent-glow);
+    animation: floatImage 6s ease-in-out infinite; /* Gentle float */
 }
 
-.circle-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.initials {
-    font-family: var(--font-heading);
-    font-size: 6rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-}
-
-.role {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-top: 10px;
-    font-weight: 500;
-}
-
-/* Orbiting Icons */
-.orbit-icon {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: var(--bg-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    font-size: 1.5rem;
-    color: var(--accent);
-    animation: orbit 8s infinite linear;
-}
-
-.icon-1 { top: -25px; left: 50%; margin-left: -25px; transform-origin: 25px 200px; }
-.icon-2 { top: 50%; right: -25px; margin-top: -25px; transform-origin: -150px 25px; animation-delay: -2s; }
-.icon-3 { bottom: -25px; left: 50%; margin-left: -25px; transform-origin: 25px -150px; animation-delay: -4s; }
-
-@keyframes orbit {
-    0% { transform: rotate(0deg) translateX(175px) rotate(0deg); }
-    100% { transform: rotate(360deg) translateX(175px) rotate(-360deg); }
+@keyframes floatImage {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
 /* --- 6. BENTO GRID --- */
@@ -318,10 +279,14 @@ footer {
     padding: 100px 0 50px;
 }
 .social-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; }
-.social-links a { font-size: 1.2rem; font-weight: 600; color: var(--text-muted); }
-.social-links a:hover { color: var(--accent); }
+.social-links a { 
+    font-size: 1.8rem; /* Bigger Icons */
+    color: var(--text-muted); 
+    transition: 0.3s; 
+}
+.social-links a:hover { color: var(--accent); transform: scale(1.1); }
 
-/* --- 9. SCROLL ANIMATION (CSS Part) --- */
+/* --- 9. SCROLL ANIMATION --- */
 [data-animate] { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
 [data-animate].visible { opacity: 1; transform: translateY(0); }
 
@@ -331,9 +296,5 @@ footer {
     .hero h1 { font-size: 2.5rem; }
     .hero-cta { justify-content: center; }
     .bento-grid { grid-template-columns: 1fr; }
-    .profile-circle { width: 280px; height: 280px; }
-    @keyframes orbit {
-        0% { transform: rotate(0deg) translateX(140px) rotate(0deg); }
-        100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
-    }
+    .hero-img { width: 280px; height: 280px; }
 }
