@@ -1,11 +1,27 @@
-/* --- 1. VARIABLES (Easy Color Change) --- */
+/* --- 1. VARIABLES (Theme Config) --- */
 :root {
-    --primary-color: #2563eb;  /* Professional Blue */
-    --dark-color: #1e293b;     /* Dark Slate */
-    --light-color: #f8fafc;    /* Very Light Grey */
-    --text-color: #334155;     /* Text Grey */
-    --white: #ffffff;
+    /* Light Mode (Default) */
+    --primary-color: #2563eb;   /* Blue */
+    --bg-color: #ffffff;        /* White Background */
+    --bg-alt: #f8fafc;          /* Light Grey Background for sections */
+    --text-color: #334155;      /* Dark Text */
+    --heading-color: #1e293b;   /* Darker Text */
+    --card-bg: #ffffff;         /* White Cards */
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --shadow: 0 5px 15px rgba(0,0,0,0.05);
     --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables (Override) */
+body.dark-mode {
+    --primary-color: #60a5fa;   /* Lighter Blue for Dark Mode */
+    --bg-color: #0f172a;        /* Deep Blue/Black */
+    --bg-alt: #1e293b;          /* Darker Section BG */
+    --text-color: #cbd5e1;      /* Light Grey Text */
+    --heading-color: #f1f5f9;   /* White Headings */
+    --card-bg: #1e293b;         /* Dark Cards */
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 /* --- 2. BASE RESET --- */
@@ -19,17 +35,12 @@
 body {
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--white);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
 .container {
     max-width: 1100px;
@@ -37,9 +48,9 @@ ul {
     padding: 0 20px;
 }
 
-/* --- 3. NAVBAR (Desktop Fixed) --- */
+/* --- 3. NAVBAR --- */
 .navbar {
-    background: rgba(255, 255, 255, 0.95); /* Slight Transparency */
+    background: var(--nav-bg);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
@@ -47,9 +58,10 @@ ul {
     height: 70px;
     display: flex;
     align-items: center;
+    transition: background 0.3s ease;
 }
 
-.navbar .container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,7 +74,12 @@ ul {
     color: var(--primary-color);
 }
 
-/* Desktop Menu */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
@@ -70,12 +87,25 @@ ul {
 
 .nav-links a {
     font-weight: 500;
-    font-size: 1rem;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--heading-color);
+    transition: var(--transition);
+    padding: 5px;
+}
+
+#theme-toggle:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
 }
 
 .hamburger {
@@ -88,23 +118,21 @@ ul {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    background-color: var(--dark-color);
+    background-color: var(--heading-color);
     transition: var(--transition);
 }
 
-/* --- 4. HERO SECTION (With Animation) --- */
+/* --- 4. HERO SECTION --- */
 .hero {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative; /* Important for Canvas */
+    position: relative;
     overflow: hidden;
-    background: #ffffff;
 }
 
-/* The Animation Layer */
 #canvas1 {
     position: absolute;
     top: 0;
@@ -114,20 +142,23 @@ ul {
     z-index: 1;
 }
 
-/* The Text Layer (Above Animation) */
 .hero-content {
     position: relative;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.6); /* Glass Effect */
+    background: rgba(255, 255, 255, 0.1); /* Glass Effect adjusted */
     padding: 40px;
     border-radius: 15px;
-    backdrop-filter: blur(3px); /* Blurs the dots behind text */
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .hero-content {
+    background: rgba(0, 0, 0, 0.2); /* Darker glass for dark mode */
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    color: var(--dark-color);
+    color: var(--heading-color);
     margin-bottom: 5px;
     line-height: 1.2;
 }
@@ -155,16 +186,16 @@ ul {
 .btn {
     display: inline-block;
     background: var(--primary-color);
-    color: var(--white);
+    color: #fff; /* Always white text on primary btn */
     padding: 12px 30px;
-    border-radius: 50px; /* Rounded pill shape */
+    border-radius: 50px;
     transition: var(--transition);
     border: 2px solid var(--primary-color);
 }
 
 .btn:hover {
-    background: var(--dark-color);
-    border-color: var(--dark-color);
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -180,27 +211,22 @@ ul {
 
 .btn-outline:hover {
     background: var(--primary-color);
-    color: var(--white);
+    color: #fff;
 }
 
 /* --- 6. SECTIONS & CARDS --- */
-.section {
-    padding: 80px 0;
-}
+.section { padding: 80px 0; }
 
-.bg-light {
-    background-color: var(--light-color);
-}
+.bg-alt { background-color: var(--bg-alt); }
 
 .section-title {
     text-align: center;
     font-size: 2.2rem;
     margin-bottom: 50px;
-    color: var(--dark-color);
+    color: var(--heading-color);
     position: relative;
 }
 
-/* Underline for titles */
 .section-title::after {
     content: '';
     display: block;
@@ -218,19 +244,18 @@ ul {
 }
 
 .skill-card {
-    background: var(--white);
+    background: var(--card-bg);
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow);
     text-align: center;
     border-bottom: 4px solid var(--primary-color);
     transition: var(--transition);
 }
 
-.skill-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
+.skill-card h3 { color: var(--heading-color); margin-bottom: 10px; }
+
+.skill-card:hover { transform: translateY(-5px); }
 
 .skill-icon {
     font-size: 2.5rem;
@@ -238,60 +263,48 @@ ul {
     margin-bottom: 15px;
 }
 
+.tech-stack {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
 /* --- 7. FOOTER --- */
 footer {
     text-align: center;
     padding: 30px;
-    background: var(--dark-color);
-    color: var(--white);
+    background: var(--heading-color); /* Uses dark color in light mode, light in dark */
+    color: var(--bg-color); /* Inverted */
     font-size: 0.9rem;
+}
+
+body.dark-mode footer {
+    background: #020617; /* Extra dark for footer in dark mode */
+    color: var(--text-color);
 }
 
 /* --- 8. MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
+    .hamburger { display: block; }
+    
     .nav-links {
         display: none;
         position: absolute;
         top: 70px;
         right: 0;
         width: 100%;
-        background: var(--white);
+        background: var(--card-bg);
         flex-direction: column;
         align-items: center;
         padding: 30px 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        text-align: center;
     }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 15px 0;
-        width: 100%;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
+    .nav-links.active { display: flex; }
+    
+    .nav-links li { margin: 15px 0; }
+    
+    .hero h1 { font-size: 2.5rem; }
+    
+    .hero-buttons { flex-direction: column; gap: 10px; }
 }
