@@ -1,4 +1,4 @@
-// 1. Theme Toggle (Same Logic, Different ID to match new HTML)
+// 1. Theme Toggle
 const themeBtn = document.getElementById('theme-btn');
 const themeIcon = themeBtn.querySelector('i');
 const body = document.body;
@@ -25,7 +25,7 @@ themeBtn.addEventListener('click', () => {
     }
 });
 
-// 2. Scroll Animation Observer (The Motion Part)
+// 2. Scroll Animation Observer
 const observerOptions = {
     threshold: 0.1
 };
