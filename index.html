@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amritpal Singh | Data Analyst Portfolio</title>
+    <meta name="description" content="Amritpal Singh — BSc Data Analytics student building logic-driven solutions with Python, SQL and Data Structures.">
+    <meta name="theme-color" content="#0c0e12">
+
+    <!-- Apply saved/system theme before first paint (prevents a flash) -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- NAV -->
+    <header class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="logo" aria-label="Amritpal Singh — home">
+                <span class="logo-mark">A</span><span class="logo-text">Amritpal<span class="dot">.</span></span>
+            </a>
+
+            <nav class="nav-links" aria-label="Sections">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-right">
+                <button id="theme-btn" class="icon-btn" aria-label="Toggle light / dark theme">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <a href="#contact" class="btn btn-solid btn-sm">Hire Me</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <span class="eyebrow reveal"><span class="live"></span> Open to work · Data Analyst Student</span>
+                    <h1 class="reveal" style="--d:.08s">Turning data<br>into <span class="accent-text">decisions.</span></h1>
+                    <p class="lead reveal" style="--d:.16s">
+                        Hello, I'm <strong>Amritpal Singh</strong>. I build logic-driven solutions using Python, SQL, and Data Structures.
+                    </p>
+                    <div class="hero-cta reveal" style="--d:.24s">
+                        <a href="#projects" class="btn btn-solid">View Projects <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <a href="assets/my-resume.pdf" download class="btn btn-ghost"><i class="fas fa-download" aria-hidden="true"></i> Resume</a>
+                    </div>
+                    <div class="hero-tags reveal" style="--d:.32s" aria-label="Core tools">
+                        <span>Python</span><span>SQL</span><span>Excel</span><span>Power BI</span><span>DSA</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal" style="--d:.2s">
+                    <div class="photo-frame">
+                        <img src="assets/profile.jpg" alt="Portrait of Amritpal Singh" class="hero-img">
+                    </div>
+
+                    <!-- Animated mini chart card -->
+                    <div class="float-card chart-card" aria-hidden="true">
+                        <span class="fc-label">insights.py</span>
+                        <div class="bars">
+                            <i style="--h:38%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:80%"></i><i style="--h:68%"></i><i style="--h:94%"></i>
+                        </div>
+                    </div>
+                    <div class="float-card sql-card" aria-hidden="true">
+                        <code><span class="k">SELECT</span> insight<br><span class="k">FROM</span> data;</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-no">01</span>
+                    <h2>About me</h2>
+                </div>
+
+                <div class="bento">
+                    <article class="box box-about reveal">
+                        <h3><i class="fas fa-user-astronaut" aria-hidden="true"></i> Who I am</h3>
+                        <p>
+                            I am a <strong>BSc Data Analytics student at Khalsa College, Amritsar</strong>. My goal is to leverage data, algorithms, and predictive models to solve real-world problems and create meaningful impact through data-driven insights.
+                        </p>
+                    </article>
+
+                    <article class="box reveal" style="--d:.08s">
+                        <span class="box-label">Current status</span>
+                        <h4><span class="live"></span> Open to Work</h4>
+                    </article>
+
+                    <article class="box reveal" style="--d:.16s">
+                        <span class="box-label">Location</span>
+                        <h4><i class="fas fa-location-dot" aria-hidden="true"></i> Punjab, India</h4>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-no">02</span>
+                    <h2>Skills</h2>
+                </div>
+
+                <ul class="skills">
+                    <li class="skill reveal"><i class="fab fa-python" aria-hidden="true"></i><span>Python</span></li>
+                    <li class="skill reveal" style="--d:.05s"><i class="fas fa-database" aria-hidden="true"></i><span>SQL</span></li>
+                    <li class="skill reveal" style="--d:.1s"><i class="fas fa-table" aria-hidden="true"></i><span>Excel</span></li>
+                    <li class="skill reveal" style="--d:.15s"><i class="fas fa-chart-column" aria-hidden="true"></i><span>Power BI</span></li>
+                    <li class="skill reveal" style="--d:.2s"><i class="fas fa-code" aria-hidden="true"></i><span>DSA</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-no">03</span>
+                    <h2>My projects</h2>
+                </div>
+
+                <div class="projects">
+                    <!-- ✏️ Replace each href="#" with the project's GitHub link -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="project-no">01</span>
+                            <a href="#" class="icon-btn" aria-label="IPL Data Analysis on GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                        <i class="fas fa-chart-line project-icon" aria-hidden="true"></i>
+                        <h3>IPL Data Analysis</h3>
+                        <p>Predicting match outcomes using 5 years of historical data and Python libraries.</p>
+                        <div class="tags"><span>Pandas</span><span>Matplotlib</span></div>
+                    </article>
+
+                    <article class="project reveal" style="--d:.1s">
+                        <div class="project-top">
+                            <span class="project-no">02</span>
+                            <a href="#" class="icon-btn" aria-label="Superstore Dashboard on GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                        <i class="fas fa-cart-shopping project-icon" aria-hidden="true"></i>
+                        <h3>Superstore Dashboard</h3>
+                        <p>Interactive dashboard visualizing regional sales profit and loss-making categories.</p>
+                        <div class="tags"><span>Excel</span><span>Power BI</span></div>
+                    </article>
+
+                    <article class="project reveal" style="--d:.2s">
+                        <div class="project-top">
+                            <span class="project-no">03</span>
+                            <a href="#" class="icon-btn" aria-label="Healthcare Cleaning on GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        </div>
+                        <i class="fas fa-notes-medical project-icon" aria-hidden="true"></i>
+                        <h3>Healthcare Cleaning</h3>
+                        <p>SQL data cleaning pipeline for a dataset containing 10,000+ patient records.</p>
+                        <div class="tags"><span>SQL</span><span>ETL</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <span class="eyebrow">Get in touch</span>
+                    <h2>Let's connect.</h2>
+                    <p class="lead">Have a role, project or idea in mind? I'd love to hear about it.</p>
+                    <a href="mailto:singhpalamrit44@gmail.com" class="btn btn-solid btn-lg"><i class="fas fa-envelope" aria-hidden="true"></i> singhpalamrit44@gmail.com</a>
+
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/amritpal-singh-14a360240" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="https://github.com/Amrit40" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                        <a href="mailto:singhpalamrit44@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>&copy; <span id="year">2026</span> Amritpal Singh.</span>
+            <a href="#top">Back to top <i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
